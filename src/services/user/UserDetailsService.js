@@ -6,9 +6,9 @@ const UserDetailsService = async (Request,DataModel) => {
         return {status: 'success', data: data}
     
     } catch (error) {
-        
+
         return {status: 'fail', data: error.toString()}
     }
 }
     
-module.exports=UserDetailsService
+module.exports = UserDetailsService
