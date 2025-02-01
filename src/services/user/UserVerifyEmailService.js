@@ -10,6 +10,8 @@ const UserVerifyEmailService= async (Request, DataModel) => {
         // Database First process
         let UserCount = (await DataModel.aggregate([{$match: {email: email}}, {$count: "total"}]))
 
+        console.log(UserCount)
+
         if(UserCount.length>0){
             // OTP Insert
 
@@ -17,7 +19,7 @@ const UserVerifyEmailService= async (Request, DataModel) => {
             await OTPSModel.create({email: email, otp: OTPCode})
 
             // Email Send
-            let SendEmail = await SendEmailUtility(email,"Your PIN Code is= "+OTPCode,"Inventory PIN Verification")
+            let SendEmail = await SendEmailUtility(email,`<h1 style='color:#ff9079;text-align:center;'>Your OTP Code Is: ${OTPCode}</h1>`, "Inventory PIN Verification")
 
             return {status: "success", data: SendEmail}
         }

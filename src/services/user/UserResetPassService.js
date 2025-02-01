@@ -20,8 +20,7 @@ const UserResetPassService= async (Request,DataModel) => {
             return {status: "fail", data: "Invalid Request"}
         }
     }
-
-
+    
     catch (e) {
         return {status: "fail", data: error.toString()}
     }

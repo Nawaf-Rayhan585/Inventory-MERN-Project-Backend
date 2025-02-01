@@ -35,7 +35,7 @@ const limiter= rateLimit({windowMs:15*60*1000,max:3000})
 app.use(limiter)
 
 //============Connection To DataBase & port listening==============//
-let URL = process.env.MONGO_URL
+let URL = process.env.MONGO_DATABASE_URL
 mongoose.connect(URL).then(()=>{
     console.log("Database Connected 🌏")
 }).catch((err)=>{
@@ -46,10 +46,10 @@ mongoose.connect(URL).then(()=>{
 // Routing Implement
 app.use("/api/v1",router)
 
+
+
 // Undefined Route Implement
-app.use("*",(req,res)=>{
-    res.status(404).json({status:"fail",data:"Not Found"})
-})
+
 
 
 module.exports = app;

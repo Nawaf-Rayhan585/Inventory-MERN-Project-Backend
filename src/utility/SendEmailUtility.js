@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 const SendEmailUtility = async (EmailTo , EmailText , EmailSubject) => {
     let transporter = nodemailer.createTransport({
-        service: 'mail.teamrabbil.com',
+        service: 'fayaz7rg@gmail.com',
         port: 25,
         secure: false,
         auth: {
@@ -15,10 +15,10 @@ const SendEmailUtility = async (EmailTo , EmailText , EmailSubject) => {
     });
 
     let mailOptions = {
-        from: "<h1 style='color:blue;text-align:center;'>Inventory Project MERN</h1>",
+        from: "Inventory Project MERN",
         to: EmailTo,
         subject: EmailSubject,
-        text: EmailText
+        html: EmailText
     }
 
     return await transporter.sendMail(mailOptions);

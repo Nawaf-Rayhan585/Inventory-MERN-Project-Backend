@@ -1,4 +1,4 @@
-const DataModel = require("../../models/Users/UsersModel.js/index.js");
+const DataModel = require("../../models/Users/UsersModel.js");
 const OTPSModel = require("../../models/Users/OTPSModel.js");
 const UserCreateService = require("../../services/user/UserCreateService");
 const UserLoginService = require("../../services/user/UserLoginService");
